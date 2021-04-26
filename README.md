@@ -30,7 +30,7 @@ jobs
 fg %3
 ```
 
-## Locate File
+#### Locate File
 ```
 sudo find . -type f -name "*.crt"
 sudo find . -type f -name "FileName"
@@ -137,7 +137,7 @@ sudo systemctl restart networking
 declare -a array=($(tail -n +2 /proc/net/tcp | cut -d":" -f"3"|cut -d" " -f"1")) && for port in ${array[@]}; do echo $((0x$port)); done
 ```
 
-####  Sharing Folder 
+#### Sharing Folder 
 ```
 mount -t cifs -o username=<change it> //whebs05/temp/Bifrost /root/tie/volumes/bifrost-server/shared/
 ```
