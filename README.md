@@ -108,7 +108,7 @@ alias ducks='du -cks * | sort -rn | head'
 ducks
 ```
 
-#### Test websocket with Curl
+#### Test websocket with Curl
 ```
 curl --include \
      --no-buffer \
@@ -121,12 +121,12 @@ curl --include \
      http://localhost:80/
 ```
 
-#### Copy ssh keys
+#### Copy ssh keys
 ```
 ssh-copy-id -i ~/.ssh/mykey user@host
 ```
 
-#### restart network interfaces
+#### restart network interfaces
 ```
 sudo ip addr flush interface-name
 sudo systemctl restart networking
