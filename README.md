@@ -5,20 +5,20 @@ Just another reference to linux useful commands
 
 #### cat with grep and surrounding lines
 ```
-cat tenant-backend.logs | grep "Starting the XML logging module" -C 50
+cat file.logs | grep "Desired word to be located" -C 50
 # - -A (after)
 # - -B (before)
 # - -C (context [before + after])
 ```
 
-#### Convert all files recursively
+#### Windows to Unix - Convert all files recursively
 ```
 find . -type f -print0 | xargs -0 dos2unix
 ```
 
 #### Clear and Edit File
 ```
-cat /dev/null > interactive.sh && nano interactive.sh
+cat /dev/null > file.sh && vi file.sh
 ```
 
 #### Retrieve jobs running in background
@@ -57,15 +57,10 @@ sysctl -w vm.swappiness=1
 # If you want the change to take effect in the current session, type ulimit -n 8000.
 ```
 
-#### Get value on a base array
+#### JSON on Bash - Get value on a base array
 ```
 yum install jq
 cat example.json | jq '.[] | .HostsPath'
-```
-
-#### Convert Files to Unix Recurssively
-```
-find . -type f -print0 | xargs -0 dos2unix
 ```
 
 ***
@@ -139,7 +134,7 @@ declare -a array=($(tail -n +2 /proc/net/tcp | cut -d":" -f"3"|cut -d" " -f"1"))
 
 #### Sharing Folder 
 ```
-mount -t cifs -o username=<change it> //whebs05/temp/Bifrost /root/tie/volumes/bifrost-server/shared/
+mount -t cifs -o username=<change it> //network-folder /local-folder
 ```
 
 #### Check Firewalld Status 
@@ -165,24 +160,24 @@ sudo journalctl -fu NetworkManager
 #### TCP Null Scan to fool a firewall to generate a response ##
 ```
 ## Does not set any bits (TCP flag header is 0) ##
-nmap -sN 192.168.253.44
+nmap -sN 192.168.0.1
 ```
 
 #### TCP Fin scan to check firewall ##
 ```
 ## Sets just the TCP FIN bit ##
-nmap -sF 192.168.253.44
+nmap -sF 192.168.0.1
 ```
 
 #### TCP Xmas scan to check firewall ##
 ```
 ## Sets the FIN, PSH, and URG flags, lighting the packet up like a Christmas tree ##
-nmap -sX 192.168.253.44
+nmap -sX 192.168.0.1
 ```
 
 #### Complete check
 ```
-nmap -v -sS -A -T4 192.168.253.44
+nmap -v -sS -A -T4 192.168.0.1
 ```
 
 #### Realtime Packages Received
